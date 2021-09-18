@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/shijuloves/firtApp/firtApp.csproj",
+      "projectUniqueName": "/home/shijuloves/XireLab/firtApp/firtApp.csproj",
       "projectName": "firtApp",
-      "projectPath": "/home/shijuloves/firtApp/firtApp.csproj",
+      "projectPath": "/home/shijuloves/XireLab/firtApp/firtApp.csproj",
       "packagesPath": "/home/shijuloves/.nuget/packages/",
-      "outputPath": "/home/shijuloves/firtApp/obj/",
+      "outputPath": "/home/shijuloves/XireLab/firtApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/shijuloves/.nuget/NuGet/NuGet.Config"

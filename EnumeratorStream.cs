@@ -27,7 +27,8 @@ public class MyReader : IEnumerable<int>
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return new MyReaderEnumerator(items);
+        // return new MyReaderEnumerator(items);
+        return this.GetEnumerator();
     }
 }
 
