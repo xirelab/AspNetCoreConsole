@@ -11,7 +11,7 @@ namespace LearningNetCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!!!!");
+            Console.WriteLine("C# Learning tasks...");
 
             TestEnumerators();  // Test Enumerators
             
