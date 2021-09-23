@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace firtApp.libraries
+namespace LearningNetCore.libraries
 {
     public class SampleIndexer
     {

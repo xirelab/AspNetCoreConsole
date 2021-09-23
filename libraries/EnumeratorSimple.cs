@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace firtApp.libraries
+namespace LearningNetCore.libraries
 {
     public class Teacher : IEnumerable
     {

@@ -1,4 +1,4 @@
-namespace firtApp.libraries
+namespace LearningNetCore.libraries
 {
     public class AsyncTest
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using firtApp.libraries;
+using LearningNetCore.libraries;
 
-namespace firtApp
+namespace LearningNetCore
 {
     public delegate void MyDelegate(int[] data);
 
@@ -58,7 +58,7 @@ namespace firtApp
 
             // Trial 4 - Streamer Enumerator - not a proper way
             Console.WriteLine("\nTest Enumerators - Trial 4 - Streamer Enumerator - not a proper way");
-            var filestream = new FileStream("/home/shijuloves/XireLab/firtApp/testdata/testfile.txt", FileMode.Open);            
+            var filestream = new FileStream("/home/shijuloves/XireLab/LearningNetCore/testdata/testfile.txt", FileMode.Open);            
             var arr = new MyReader(filestream).ToArray();
             foreach(var item in arr)
             {
@@ -72,7 +72,7 @@ namespace firtApp
 
             // Trial 5 - Streamer Enumerator - proper way
             Console.WriteLine("\nTest Enumerators - Trial 5 - Streamer Enumerator - proper way");
-            var filestream2 = new FileStream("/home/shijuloves/XireLab/firtApp/testdata/testfile2.txt", FileMode.Open);
+            var filestream2 = new FileStream("/home/shijuloves/XireLab/LearningNetCore/testdata/testfile2.txt", FileMode.Open);
             var myReader2 =  new MyReader2(filestream2);
             foreach(var item in myReader2)
             {

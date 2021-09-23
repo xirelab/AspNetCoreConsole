@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j0PJQ8OXFrqZNOrgWCP1+eKxcCTBpXZGf8uSzzHEr3p7BPFyKRxzOm/D62UHl0STvtQ8UcSTJtyGiz6YdW2VYg==",
+  "dgSpecHash": "NrpZquvagxBWJybLYaI1+NJGtl/3igWzw+/o/SHsrKe5XFEe3KhkOOfu2boAmMSu3RYBxnIFa/aqUy4S5vtcKA==",
   "success": true,
-  "projectFilePath": "/home/shijuloves/XireLab/firtApp/firtApp.csproj",
+  "projectFilePath": "/home/shijuloves/XireLab/LearningNetCore/LearningNetCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

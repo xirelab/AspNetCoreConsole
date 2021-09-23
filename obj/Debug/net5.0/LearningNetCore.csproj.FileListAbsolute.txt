@@ -1,0 +1,16 @@
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/LearningNetCore
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/LearningNetCore.deps.json
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/LearningNetCore.runtimeconfig.json
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/LearningNetCore.runtimeconfig.dev.json
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/LearningNetCore.dll
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/ref/LearningNetCore.dll
+/home/shijuloves/XireLab/LearningNetCore/bin/Debug/net5.0/LearningNetCore.pdb
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.csproj.AssemblyReference.cache
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.GeneratedMSBuildEditorConfig.editorconfig
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.AssemblyInfoInputs.cache
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.AssemblyInfo.cs
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.csproj.CoreCompileInputs.cache
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.dll
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/ref/LearningNetCore.dll
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.pdb
+/home/shijuloves/XireLab/LearningNetCore/obj/Debug/net5.0/LearningNetCore.genruntimeconfig.cache

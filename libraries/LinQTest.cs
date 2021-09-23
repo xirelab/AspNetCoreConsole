@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace firtApp.libraries
+namespace LearningNetCore.libraries
 {
     public class LinQ
     {

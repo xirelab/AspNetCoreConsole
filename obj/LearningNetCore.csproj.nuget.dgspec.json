@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/shijuloves/XireLab/firtApp/firtApp.csproj": {}
+    "/home/shijuloves/XireLab/LearningNetCore/LearningNetCore.csproj": {}
   },
   "projects": {
-    "/home/shijuloves/XireLab/firtApp/firtApp.csproj": {
+    "/home/shijuloves/XireLab/LearningNetCore/LearningNetCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/shijuloves/XireLab/firtApp/firtApp.csproj",
-        "projectName": "firtApp",
-        "projectPath": "/home/shijuloves/XireLab/firtApp/firtApp.csproj",
+        "projectUniqueName": "/home/shijuloves/XireLab/LearningNetCore/LearningNetCore.csproj",
+        "projectName": "LearningNetCore",
+        "projectPath": "/home/shijuloves/XireLab/LearningNetCore/LearningNetCore.csproj",
         "packagesPath": "/home/shijuloves/.nuget/packages/",
-        "outputPath": "/home/shijuloves/XireLab/firtApp/obj/",
+        "outputPath": "/home/shijuloves/XireLab/LearningNetCore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/shijuloves/.nuget/NuGet/NuGet.Config"

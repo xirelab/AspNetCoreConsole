@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace firtApp.libraries
+namespace LearningNetCore.libraries
 {
     public class MyReader2 : IEnumerable<int>
     {
