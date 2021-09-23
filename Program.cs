@@ -1,8 +1,7 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
+using firtApp.libraries;
 
 namespace firtApp
 {
@@ -21,6 +20,8 @@ namespace firtApp
             TestExamQuestion();  // Test ExamQuestion
             
             TestLinQ(); // Test LinQ
+
+            TestAsync(); // Test Async
 
             // Console.ReadLine();
         }
@@ -57,7 +58,7 @@ namespace firtApp
 
             // Trial 4 - Streamer Enumerator - not a proper way
             Console.WriteLine("\nTest Enumerators - Trial 4 - Streamer Enumerator - not a proper way");
-            var filestream = new FileStream("/home/shijuloves/XireLab/firtApp/testfile.txt", FileMode.Open);            
+            var filestream = new FileStream("/home/shijuloves/XireLab/firtApp/testdata/testfile.txt", FileMode.Open);            
             var arr = new MyReader(filestream).ToArray();
             foreach(var item in arr)
             {
@@ -71,7 +72,7 @@ namespace firtApp
 
             // Trial 5 - Streamer Enumerator - proper way
             Console.WriteLine("\nTest Enumerators - Trial 5 - Streamer Enumerator - proper way");
-            var filestream2 = new FileStream("/home/shijuloves/XireLab/firtApp/testfile2.txt", FileMode.Open);
+            var filestream2 = new FileStream("/home/shijuloves/XireLab/firtApp/testdata/testfile2.txt", FileMode.Open);
             var myReader2 =  new MyReader2(filestream2);
             foreach(var item in myReader2)
             {
@@ -104,6 +105,13 @@ namespace firtApp
             linq.GroupBy();
             linq.Joined();
             linq.Nested();
+        }
+
+        static void TestAsync()
+        {
+            Console.WriteLine("\nTest Async...");
+            var async = new AsyncTest();
+
         }
     }    
 }

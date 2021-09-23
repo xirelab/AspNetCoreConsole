@@ -19,9 +19,6 @@
 /home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.AssemblyInfoInputs.cache
 /home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.AssemblyInfo.cs
 /home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.csproj.CoreCompileInputs.cache
-/home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.dll
-/home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/ref/firtApp.dll
-/home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.pdb
 /home/shijuloves/XireLab/firtApp/bin/Debug/net5.0/firtApp
 /home/shijuloves/XireLab/firtApp/bin/Debug/net5.0/firtApp.deps.json
 /home/shijuloves/XireLab/firtApp/bin/Debug/net5.0/firtApp.runtimeconfig.json
@@ -29,4 +26,7 @@
 /home/shijuloves/XireLab/firtApp/bin/Debug/net5.0/firtApp.dll
 /home/shijuloves/XireLab/firtApp/bin/Debug/net5.0/ref/firtApp.dll
 /home/shijuloves/XireLab/firtApp/bin/Debug/net5.0/firtApp.pdb
+/home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.dll
+/home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/ref/firtApp.dll
+/home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.pdb
 /home/shijuloves/XireLab/firtApp/obj/Debug/net5.0/firtApp.genruntimeconfig.cache
