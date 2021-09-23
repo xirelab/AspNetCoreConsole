@@ -35,34 +35,47 @@ public class MyReaderEnumerator2 : IEnumerator<int>
     {
         reader = new StreamReader(stream);
     }
-
-    public void Dispose()
-    {
-        reader.DiscardBufferedData();
-        reader.Close();
-        reader.Dispose();        
-    }
-
+    
     public bool MoveNext()
     {       
         bool isValid = false;
         string item;
+        // Console.WriteLine("MoveNext start:" + value);
         do {
             item = reader.ReadLine();
             if (IsValid(item)) {
                 isValid = true;
                 value = Convert.ToInt32(item);
             }
-        } while(!isValid);
-        
-        return item != null;
+        } while(item!= null && !isValid);
+        // Console.WriteLine("MoveNext value:" + value);
+        return item != null && isValid;
     }
 
     public void Reset()
     {
+        Console.WriteLine("re-start........");
         reader.DiscardBufferedData();
         reader.BaseStream.Seek(0, SeekOrigin.Begin);
     }
+
+    public void Dispose()
+    {
+        Console.WriteLine("bye!");
+        if (reader != null)
+        {
+            // Dispose(true);
+            reader.Close();
+            // reader.Dispose();
+            // GC.SuppressFinalize(this);
+        }
+    }
+
+    // protected virtual void Dispose(bool disposing)
+    // {
+    //     reader.Close();
+    //     reader.Dispose();    
+    // }
 
     private bool IsValid(string value)
     {

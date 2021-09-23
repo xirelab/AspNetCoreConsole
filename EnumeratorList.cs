@@ -6,16 +6,21 @@ using System.IO;
 
 public class Student : IEnumerable<int>
 {
-    private readonly int[] data;
-
+    private int[] data;
+    
     public Student()
     {
-        data = new int[] {3, 5, 7};
-    }
+        // data = new int[] {3, 5, 7};
+    }    
 
     public Student(int[] numbers)
     {
         data = numbers;
+    }
+
+    public void GetData(int[] value)  
+    {  
+        data = value;
     }
 
     public IEnumerator<int> GetEnumerator()
