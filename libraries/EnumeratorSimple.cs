@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace LearningNetCore.libraries
+namespace NetCoreConsole.libraries
 {
     public class Teacher : IEnumerable
     {

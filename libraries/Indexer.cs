@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace LearningNetCore.libraries
+namespace NetCoreConsole.libraries
 {
     public class SampleIndexer
     {

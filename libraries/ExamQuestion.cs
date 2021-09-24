@@ -1,4 +1,4 @@
-namespace LearningNetCore.libraries
+namespace NetCoreConsole.libraries
 {
     public class Solution {
         public int solution(int X, int Y, int[] A) 

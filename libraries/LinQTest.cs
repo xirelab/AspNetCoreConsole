@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LearningNetCore.libraries
+namespace NetCoreConsole.libraries
 {
     public class LinQ
     {

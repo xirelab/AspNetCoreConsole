@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using LearningNetCore.libraries;
+using System.Threading.Tasks;
+using NetCoreConsole.libraries;
 
-namespace LearningNetCore
+namespace NetCoreConsole
 {
     public delegate void MyDelegate(int[] data);
 
@@ -58,7 +59,7 @@ namespace LearningNetCore
 
             // Trial 4 - Streamer Enumerator - not a proper way
             Console.WriteLine("\nTest Enumerators - Trial 4 - Streamer Enumerator - not a proper way");
-            var filestream = new FileStream("/home/shijuloves/XireLab/LearningNetCore/testdata/testfile.txt", FileMode.Open);            
+            var filestream = new FileStream("/home/shijuloves/XireLab/NetCoreConsole/testdata/testfile.txt", FileMode.Open);            
             var arr = new MyReader(filestream).ToArray();
             foreach(var item in arr)
             {
@@ -72,7 +73,7 @@ namespace LearningNetCore
 
             // Trial 5 - Streamer Enumerator - proper way
             Console.WriteLine("\nTest Enumerators - Trial 5 - Streamer Enumerator - proper way");
-            var filestream2 = new FileStream("/home/shijuloves/XireLab/LearningNetCore/testdata/testfile2.txt", FileMode.Open);
+            var filestream2 = new FileStream("/home/shijuloves/XireLab/NetCoreConsole/testdata/testfile2.txt", FileMode.Open);
             var myReader2 =  new MyReader2(filestream2);
             foreach(var item in myReader2)
             {
@@ -107,11 +108,17 @@ namespace LearningNetCore
             linq.Nested();
         }
 
-        static void TestAsync()
+        static async void TestAsync()
         {
             Console.WriteLine("\nTest Async...");
             var async = new AsyncTest();
-
+            // using (Task task = async.TestDelay1())
+            // {
+            //     int count = await task;
+            // }
+            int count = await async.TestDelay1();
+            Console.WriteLine("\nTest Asyncc - count = " + count);
+            async.TestDelay2();
         }
     }    
 }

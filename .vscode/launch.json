@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net5.0/LearningNetCore.dll>",
+            "program": "${workspaceFolder}/bin/Debug/net5.0/NetCoreConsole.dll>",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
