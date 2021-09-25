@@ -108,17 +108,34 @@ namespace NetCoreConsole
             linq.Nested();
         }
 
-        static async void TestAsync()
+        static void TestAsync()
         {
             Console.WriteLine("\nTest Async...");
             var async = new AsyncTest();
-            // using (Task task = async.TestDelay1())
-            // {
-            //     int count = await task;
-            // }
-            int count = await async.TestDelay1();
-            Console.WriteLine("\nTest Asyncc - count = " + count);
-            async.TestDelay2();
+            
+            Console.WriteLine("Test Async Delay...");
+            Task delay = async.asyncTask_TestDelay();   // Asyn call with delay. So specific wait required here
+            async.syncTask_ForTestAsync();
+            delay.Wait();
+
+            Console.WriteLine("\nTest Simple Async...");
+            Task task = async.DoSimpleAsync();
+            async.syncTask_ForTestAsync();
+            task.Wait();
+
+            Console.WriteLine("\nTest Dealy wait...");
+            async.TestDelayWait();
+
+            Console.WriteLine("\nTest Async with return type + wait...");
+            Task<int> task2 = async.TestDelay1Async(10);    // 10 numbers
+            Task task3 = async.TestDelay2Async(20);     // 20 numbers, so need wait here
+            task3.Wait();
+            Console.WriteLine("\nTest Async - count = " + task2.Result);
+            
+            Console.WriteLine("\nTest Async with return type + no wait...");
+            Task<int> task4 = async.TestDelay1Async(20);    // 20 numbers, but wait already available inside
+            Task task5 = async.TestDelay2Async(10); // 10 numbers, no delay required
+            Console.WriteLine("\nTest Async - count = " + task4.Result);            
         }
     }    
 }
