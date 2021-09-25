@@ -22,7 +22,7 @@ namespace NetCoreConsole
             
             TestLinQ(); // Test LinQ
 
-            TestAsync(); // Test Async
+            Task task = TestAsync(); // Test Async
 
             // Console.ReadLine();
         }
@@ -108,10 +108,11 @@ namespace NetCoreConsole
             linq.Nested();
         }
 
-        static void TestAsync()
+        static async Task<double> TestAsync()
         {
             Console.WriteLine("\nTest Async...");
             var async = new AsyncTest();
+            // Reference https://github.com/dotnet/docs/tree/main/docs/csharp/programming-guide/concepts/async/snippets/index
             
             Console.WriteLine("Test Async Delay...");
             Task delay = async.asyncTask_TestDelay();   // Asyn call with delay. So specific wait required here
@@ -127,15 +128,25 @@ namespace NetCoreConsole
             async.TestDelayWait();
 
             Console.WriteLine("\nTest Async with return type + wait...");
-            Task<int> task2 = async.TestDelay1Async(10);    // 10 numbers
-            Task task3 = async.TestDelay2Async(20);     // 20 numbers, so need wait here
+            Task<int> task2 = async.TestDelay1Async(5);     // 5 numbers
+            Task task3 = async.TestDelay2Async(10);         // 10 numbers, so need wait here
             task3.Wait();
-            Console.WriteLine("\nTest Async - count = " + task2.Result);
+            Console.WriteLine("Test Async - count = " + task2.Result);
             
             Console.WriteLine("\nTest Async with return type + no wait...");
-            Task<int> task4 = async.TestDelay1Async(20);    // 20 numbers, but wait already available inside
-            Task task5 = async.TestDelay2Async(10); // 10 numbers, no delay required
-            Console.WriteLine("\nTest Async - count = " + task4.Result);            
+            Task<int> task4 = async.TestDelay1Async(10);    // 10 numbers, but wait already available inside
+            Task task5 = async.TestDelay2Async(5);          // 5 numbers, no delay required
+            Console.WriteLine("Test Async - count = " + task4.Result);
+
+            Console.WriteLine("\nTest Async realworld example...");
+            string filePath = "/home/shijuloves/XireLab/NetCoreConsole/testdata/testfile2.txt";
+            Task<int> task6 = async.AyncRealExample(filePath);
+            Console.WriteLine("Total characters in file: " + task6.Result);
+            
+            Console.WriteLine("\nTest Multiple Async example...");
+            double value = await async.MultipleAsync();  
+            Console.WriteLine("Multiple Tasks execution took {0} seconds", value);
+            return value;
         }
     }    
 }

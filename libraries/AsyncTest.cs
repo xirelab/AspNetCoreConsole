@@ -1,7 +1,10 @@
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.IO;
 
 namespace NetCoreConsole.libraries
 {
@@ -52,7 +55,7 @@ namespace NetCoreConsole.libraries
         public void TestDelayWait()
         {
             Console.WriteLine("Async Wait starting...");
-            for(int i=0; i<10; i++) {                
+            for(int i=0; i<5; i++) {                
                 Task.Delay(500).Wait();
                 // Thread.Sleep(500);  // either use this. in this case both working same
                 Console.WriteLine("Async Wait : " + i);
@@ -87,5 +90,81 @@ namespace NetCoreConsole.libraries
             }
             Console.WriteLine("Async Call 2 completed...");
         }        
+
+        public async Task<int> AyncRealExample(string file)
+        {
+            Console.WriteLine("Async Realtime example starting...");
+            var sw = new Stopwatch();
+            sw.Start();
+            int length = 0;
+            using (StreamReader reader = new StreamReader(file))
+            {
+                string s = reader.ReadToEnd();
+                length = s.Length;
+            }
+            Console.WriteLine("File read Sync took {0} seconds", sw.Elapsed.TotalSeconds);
+            using (StreamReader reader = new StreamReader(file))
+            {
+                string s = await reader.ReadToEndAsync();
+                length = s.Length;
+            }
+            Console.WriteLine("File read Async took {0} seconds", sw.Elapsed.TotalSeconds);
+            Console.WriteLine("Async Realtime example completed...");
+            return length;            
+        }
+
+        private async static Task<int> Sleep(int ms)
+        {
+            Console.WriteLine("Sleeping for {0}", ms);
+            await Task.Delay(ms);
+            Console.WriteLine("Sleeping for {0} finished", ms);
+            return ms;
+        }
+
+        public async Task<double> MultipleAsync()
+        {
+            Console.WriteLine("Async multiple Call starting...");
+            var sw = new Stopwatch();            
+
+            Console.WriteLine("\nAsync multiple Call Sample 1...");
+            int[] result = await Task.WhenAll(Sleep(5000), Sleep(3000));
+            Console.WriteLine("Slept timgins are " + result[0] + ", " + result[0] + " ms");
+
+            Console.WriteLine("\nAsync multiple Call Sample 2...");
+            var tasks = new List<Task>
+            {
+                // new Task( () => { Task.Delay(1000); Console.WriteLine("task1 execution"); }),
+                // new Task( () => { Task.Delay(2000); Console.WriteLine("task2 execution"); }),
+                // new Task( () => { Task.Delay(3000); Console.WriteLine("task3 execution"); }),
+                // new Task( () => { Task.Delay(4000); Console.WriteLine("task4 execution"); }),
+                // new Task( () => { Task.Delay(5000); Console.WriteLine("task5 execution"); }),
+                new Task( async () => { await Task.Run(() => { Task.Delay(1000).Wait(); Console.WriteLine("task1 execution"); }); }),
+                new Task( async () => { await Task.Run(() => { Task.Delay(2000).Wait(); Console.WriteLine("task2 execution"); }); }),
+                new Task( async () => { await Task.Run(() => { Task.Delay(3000).Wait(); Console.WriteLine("task3 execution"); }); }),
+                new Task( async () => { await Task.Run(() => { Task.Delay(4000).Wait(); Console.WriteLine("task4 execution"); }); }),
+                new Task( async () => { await Task.Run(() => { Task.Delay(5000).Wait(); Console.WriteLine("task5 execution"); }); }),
+                // new Task( async () => { await Task.Delay(1000); Console.WriteLine("task1 execution"); }),
+                // new Task( async () => { await Task.Delay(2000); Console.WriteLine("task2 execution"); }),
+                // new Task( async () => { await Task.Delay(3000); Console.WriteLine("task3 execution"); }),
+                // new Task( async () => { await Task.Delay(4000); Console.WriteLine("task4 execution"); }),
+                // new Task( async () => { await Task.Delay(5000); Console.WriteLine("task5 execution"); }),
+            };
+            
+            sw.Start();
+            Console.WriteLine("Tasks added.. going to start execution..");            
+            tasks.ForEach(t => t.Start());
+
+            Console.WriteLine("Tasks Started.. wait untill all completed..");
+            await Task.WhenAll(tasks);
+            /* OR below is another way  */
+            // while(tasks.Count > 0)
+            // {
+            //     Task finishedTask = await Task.WhenAny(tasks);
+            //     tasks.Remove(finishedTask);
+            // }
+
+            Console.WriteLine("Async multiple Call completed...");
+            return sw.Elapsed.TotalSeconds;
+        }
     }
 }
