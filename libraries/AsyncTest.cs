@@ -97,11 +97,11 @@ namespace NetCoreConsole.libraries
             var sw = new Stopwatch();
             sw.Start();
             int length = 0;
-            using (StreamReader reader = new StreamReader(file))
-            {
-                string s = reader.ReadToEnd();
-                length = s.Length;
-            }
+            // using (StreamReader reader = new StreamReader(file))
+            // {
+            //     string s = reader.ReadToEnd();
+            //     length = s.Length;
+            // }
             Console.WriteLine("File read Sync took {0} seconds", sw.Elapsed.TotalSeconds);
             using (StreamReader reader = new StreamReader(file))
             {
@@ -113,30 +113,49 @@ namespace NetCoreConsole.libraries
             return length;            
         }
 
-        private async static Task<int> Sleep(int ms)
+        private async static Task<int> Running(int ms)
         {
-            Console.WriteLine("Sleeping for {0}", ms);
+            Console.WriteLine("Running for {0}", ms);
             await Task.Delay(ms);
-            Console.WriteLine("Sleeping for {0} finished", ms);
+            Console.WriteLine("Running finished after {0}", ms);
             return ms;
         }
 
-        public async Task<double> MultipleAsync()
+        public void MultipleAsync1()
         {
-            Console.WriteLine("Async multiple Call starting...");
+            Console.WriteLine("Async multiple Call trial 1 starting...");
             var sw = new Stopwatch();
-
-            /* Sample 1 */
             sw.Start();
-            Console.WriteLine("\nAsync multiple Call Sample 1...");
-            int[] result = await Task.WhenAll(Sleep(5000), Sleep(3000));
-            Console.WriteLine("Expected Slept time: " + Convert.ToInt32(result[0] + result[0]) + " ms");
-            Console.WriteLine("Actual Slept time: " + sw.Elapsed.TotalSeconds + " seconds");
-            sw.Stop();
+            string filePath = "/home/shijuloves/XireLab/NetCoreConsole/testdata/testfile2.txt";
+            
+            var tasks = new List<Task>
+            {
+                Running(5000),
+                Running(8000),
+                Running(3000),
+                TestDelay1Async(20),
+                AyncRealExample(filePath),
+                asyncTask_TestDelay()
+            };
 
-            /* Sample 2 */
-            sw.Restart();
-            Console.WriteLine("\nAsync multiple Call Sample 2...");
+            // One way
+            // int[] result = await Task.WhenAll(tasks);
+            // Console.WriteLine("Total Running time: " + Convert.ToInt32(result[0] + result[0]) + " ms");
+            // Console.WriteLine("Actual Running time: " + sw.Elapsed.TotalSeconds + " seconds");
+
+            // Another way            
+            Task.WaitAll(tasks.ToArray());            
+            Console.WriteLine("Total Running time: " + Convert.ToInt32(5 + 3 + 8) + " seconds");            
+            Console.WriteLine("Actual Running time: " + sw.Elapsed.TotalSeconds + " seconds");
+            sw.Stop();
+            Console.WriteLine("Async multiple Call trial 1 completed...");
+        }
+
+        public async Task<double> MultipleAsync2()
+        {           
+            Console.WriteLine("Async multiple Call Trial 2 starting...");
+            var sw = new Stopwatch();            
+            sw.Start();            
             var tasks = new List<Task>
             {
                 // new Task( () => { Task.Delay(1000); Console.WriteLine("task1 execution"); }),
@@ -160,7 +179,6 @@ namespace NetCoreConsole.libraries
             tasks.ForEach(t => t.Start());
 
             Console.WriteLine("Tasks Started.. wait untill all completed..");
-            // Task.WaitAll(tasks.ToArray());
             await Task.WhenAll(tasks);
             /* OR below is another way  */
             // while(tasks.Count > 0)
@@ -169,7 +187,7 @@ namespace NetCoreConsole.libraries
             //     tasks.Remove(finishedTask);
             // }
 
-            Console.WriteLine("Async multiple Call completed...");
+            Console.WriteLine("Async multiple Call trial 2 completed...");
             return sw.Elapsed.TotalSeconds;
         }
     }

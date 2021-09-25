@@ -143,8 +143,11 @@ namespace NetCoreConsole
             Task<int> task6 = async.AyncRealExample(filePath);
             Console.WriteLine("Total characters in file: " + task6.Result);
             
-            Console.WriteLine("\nTest Multiple Async example...");
-            double value = await async.MultipleAsync();  
+            Console.WriteLine("\nTest Multiple Async Trail 1 example...");
+            async.MultipleAsync1();  
+
+            Console.WriteLine("\nTest Multiple Async Trial 2 example...");
+            double value = await async.MultipleAsync2();  
             Console.WriteLine("Multiple Tasks execution took {0} seconds", value);
             return value;
         }
